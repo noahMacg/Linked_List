@@ -1,3 +1,4 @@
+
 /**
  * This class holds and allows manipulation of the data.
  */
@@ -22,7 +23,7 @@ public class HurricaneDataManager {
     // Prints out all the data
     public void printAllHurricaneData() {
         for (HurricaneRowData data : hurricaneDataList) {
-            System.out.println(data);  // Calls the toString() method of HurricaneRowData
+            System.out.println(data); // Calls the toString() method of HurricaneRowData
         }
     }
 
@@ -40,7 +41,7 @@ public class HurricaneDataManager {
         System.out.println("High ACE year: " + highAceYear);
 
         // Source: Gemini "how do I write a file with file writer in java"
-        String fileName = "High ACE index";
+        String fileName = "High ACE index.txt";
         String content = "High ACE index: " + highAceIndex + "\n" +
                 "High ACE year: " + highAceYear;
 
@@ -50,6 +51,7 @@ public class HurricaneDataManager {
             System.out.println("An error occurred while writing to the file: " + e.getMessage());
         }
     }
+
     /*
     This method calculates and prints the average and frequency distribution
     of every 6 years. I am also taking statistics, so I decided to try and incorporate what
@@ -111,5 +113,3 @@ public class HurricaneDataManager {
         } // public void aceAverageAndFrequency()
     } // public void aceAverageAndFrequency()
 } // public class HurricaneDataManager
-
-

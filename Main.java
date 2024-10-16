@@ -18,11 +18,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        /*
+        if (args.length != 1) {
+        	System.out.println("Please provide the file path.");
+        	return;
+        }
+        String filePath = args[0]; 
+        */
+        String filePath = ("C:\\Users\\pilga\\code\\CS2251_code\\Linked_List\\ace.csv");
         // Instantiates a new object of the class HurricaneDataManager
         HurricaneDataManager dataSet1 = new HurricaneDataManager();
 
         try {
-            File f = new File("C:\\Users\\pilga\\Desktop\\code\\Hurricane Data\\src\\ace.csv");
+            File f = new File(filePath);
             Scanner s = new Scanner(f);
 
             s.nextLine();
@@ -41,6 +50,7 @@ public class Main {
                 // Source: "CGPT how do I add data from Main into a data class"
                 dataSet1.addHurricaneData(temp);
             }
+            s.close();
             // Source: CGPT "what io exception do I want to initiate in try / catch for a file input"
         } catch (IOException e) {
             System.err.println("IO error: " + e.getMessage());
