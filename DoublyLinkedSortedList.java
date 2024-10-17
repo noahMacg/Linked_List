@@ -1,8 +1,7 @@
 public class DoublyLinkedSortedList implements DoublyLinkedSortedListInterface {
-    /* This class: 
-     * Implements the DoublyLinkedSortedListInterface; creates a doubly linked 
-     * sorted list from data read in from main and stores the object created
-     * in HurricaneRowData.java. It then find the high ACE year, prints it to 
+    /* Implements the DoublyLinkedSortedListInterface; creates a doubly linked 
+     * sorted list from data read in from main and stores the object (based on ACE value)
+     * created in HurricaneRowData.java. It then finds the high ACE year, prints it to 
      * the console and a .txt file. 
     */
 
