@@ -27,8 +27,8 @@ public class HurricaneDataManager {
         }
     }
 
-    // Calculates the maximus ACE year and prints it to the console and a file
-    public void calculateAndPrintMaxiumAceYear() {
+    // Calculates the maximum ACE year and prints it to the console and a file
+    public void calculateAndPrintMaximumAceYear() {
         int highAceIndex = 0;
         int highAceYear = 0;
         for (HurricaneRowData data : hurricaneDataList) {

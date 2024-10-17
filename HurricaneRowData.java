@@ -51,7 +51,6 @@ public class HurricaneRowData {
                 "ACE Index: " + aceIndex,
                 "Tropical Storms: " + tropStorm,
                 "Hurricanes Cat 1: " + hurrCat1,
-                "Major Hurricanes: " + hurrMajor
-        );
+                "Major Hurricanes: " + hurrMajor);
     }
 } // end class

@@ -60,7 +60,7 @@ public class Main {
         // Prints the entire data set to ensure proper file input and classification
         dataSet1.printAllHurricaneData();
         System.out.println();
-        dataSet1.calculateAndPrintMaxiumAceYear();
+        dataSet1.calculateAndPrintMaximumAceYear();
         dataSet1.aceAverageAndFrequency();
 
     } // end public static void main (String[] args )
