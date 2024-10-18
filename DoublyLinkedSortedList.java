@@ -64,26 +64,45 @@ public class DoublyLinkedSortedList {
         this.previous = previous;
         previous.next = this;
     }
-    /*
+
     //Return a reference to the previous DoublyLinkedSortedList
-    public DoublyLinkedSortedList getPrevious();
-    
+    public DoublyLinkedSortedList getPrevious() {
+        return this.previous;
+    }
+
     //Return a reference to the first DoublyLinkedSortedList element in the list
-    public DoublyLinkedSortedList getFirst();
-    
+    public DoublyLinkedSortedList getFirst() {
+        return this.head;
+    }
+
     //Return a reference to the last DoublyLinkedSortedList element in the list
-    public DoublyLinkedSortedList getLast();
-    
+    public DoublyLinkedSortedList getLast() {
+        DoublyLinkedSortedList current = head;
+        while (current != null) {
+            current = current.getNext();
+        }
+        return current;
+    }
+
     //Remove the DoublyLinkedSortedList element that has toRemove as its value
-    public DoublyLinkedSortedList remove(HurricaneRowData toRemove);
-       
+    // public DoublyLinkedSortedList remove(HurricaneRowData toRemove) {
+
+    //     DoublyLinkedSortedList current = head; 
+
+    //     while (current! = null) {
+    //         if (current.get == null) {
+    //             System.out.println("The list is empty.");
+    //         }
+    //     }
+    // }
+
     //Return the entire list as a multi-line String
-    public String toString();
-     */
+    //public String toString();
 
     //Insert a new DoublyLinkedSortedList element that has the given newValue in order in the list.
     public void insert(HurricaneRowData newValue) {
-
+        DoublyLinkedSortedList newNode = new DoublyLinkedSortedList(newValue);
+        System.out.println(newNode);
     }
 
 }

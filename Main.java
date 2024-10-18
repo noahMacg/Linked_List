@@ -30,32 +30,34 @@ public class Main {
         // Instantiates a new object of the class HurricaneDataManager
         //HurricaneDataManager dataSet1 = new HurricaneDataManager();
         DoublyLinkedSortedList dataSet1 = new DoublyLinkedSortedList();
-        try {
-            File f = new File(filePath);
-            Scanner s = new Scanner(f);
+        HurricaneRowData test = new HurricaneRowData(2022, 10, 20, 3, 6);
+        dataSet1.insert(test);
+        // try {
+        //     File f = new File(filePath);
+        //     Scanner s = new Scanner(f);
 
-            s.nextLine();
+        //     s.nextLine();
 
-            while (s.hasNext()) {
-                String line = s.nextLine(); // Strips the header
-                String[] values = line.split(","); // Breaks the data up
+        //     while (s.hasNext()) {
+        //         String line = s.nextLine(); // Strips the header
+        //         String[] values = line.split(","); // Breaks the data up
 
-                HurricaneRowData temp = new HurricaneRowData(
-                        Integer.parseInt(values[0]), // year
-                        Integer.parseInt(values[1]), // aceIndex
-                        Integer.parseInt(values[2]), //tropStorm
-                        Integer.parseInt(values[3]), // hurrCat1
-                        Integer.parseInt(values[4]) // hurrMajor
-                );
-                // Source: "CGPT how do I add data from Main into a data class"
-                dataSet1.insert(temp);
-                //HurricaneRowData h = dataSet1.getValue();
-            }
-            s.close();
-            // Source: CGPT "what io exception do I want to initiate in try / catch for a file input"
-        } catch (IOException e) {
-            System.err.println("IO error: " + e.getMessage());
-        }
+        //         HurricaneRowData temp = new HurricaneRowData(
+        //                 Integer.parseInt(values[0]), // year
+        //                 Integer.parseInt(values[1]), // aceIndex
+        //                 Integer.parseInt(values[2]), //tropStorm
+        //                 Integer.parseInt(values[3]), // hurrCat1
+        //                 Integer.parseInt(values[4]) // hurrMajor
+        //         );
+        //         // Source: "CGPT how do I add data from Main into a data class"
+        //         dataSet1.insert(temp);
+        //         //HurricaneRowData h = dataSet1.getValue();
+        //     }
+        //     s.close();
+        //     // Source: CGPT "what io exception do I want to initiate in try / catch for a file input"
+        // } catch (IOException e) {
+        //     System.err.println("IO error: " + e.getMessage());
+        // }
         // Source: CGPT "how do I call another method in another class with an object
         // that has been instantiated in main"
         // Prints the entire data set to ensure proper file input and classification
