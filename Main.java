@@ -28,8 +28,8 @@ public class Main {
         */
         String filePath = ("C:\\Users\\pilga\\code\\CS2251_code\\Linked_List\\ace.csv");
         // Instantiates a new object of the class HurricaneDataManager
-        HurricaneDataManager dataSet1 = new HurricaneDataManager();
-
+        //HurricaneDataManager dataSet1 = new HurricaneDataManager();
+        DoublyLinkedSortedList dataSet1 = new DoublyLinkedSortedList();
         try {
             File f = new File(filePath);
             Scanner s = new Scanner(f);
@@ -48,7 +48,8 @@ public class Main {
                         Integer.parseInt(values[4]) // hurrMajor
                 );
                 // Source: "CGPT how do I add data from Main into a data class"
-                dataSet1.addHurricaneData(temp);
+                dataSet1.insert(temp);
+                //HurricaneRowData h = dataSet1.getValue();
             }
             s.close();
             // Source: CGPT "what io exception do I want to initiate in try / catch for a file input"
@@ -58,10 +59,10 @@ public class Main {
         // Source: CGPT "how do I call another method in another class with an object
         // that has been instantiated in main"
         // Prints the entire data set to ensure proper file input and classification
-        dataSet1.printAllHurricaneData();
-        System.out.println();
-        dataSet1.calculateAndPrintMaximumAceYear();
-        dataSet1.aceAverageAndFrequency();
+        // dataSet1.printAllHurricaneData();
+        // System.out.println();
+        // dataSet1.calculateAndPrintMaximumAceYear();
+        // dataSet1.aceAverageAndFrequency();
 
     } // end public static void main (String[] args )
 } // End public class Main
