@@ -28,7 +28,7 @@ public interface DoublyLinkedSortedListInterface {
 	public DoublyLinkedSortedList getLast();
 
 	//Remove the DoublyLinkedSortedList element that has toRemove as its value
-	public DoublyLinkedSortedList remove(HurricaneRowData toRemove);
+	//public DoublyLinkedSortedList remove(HurricaneRowData toRemove);
 
 	//Insert a new DoublyLinkedSortedList element that has the given newValue in order in the list.
 	public void insert(HurricaneRowData newValue);
