@@ -43,7 +43,7 @@ public class DoublyLinkedSortedList {
     //Set next to be the given DoublyLinkedSortedList
     public void setNext(DoublyLinkedSortedList next) {
         this.next = next;
-        previous.next = this;
+
     }
 
     //Return a reference to the next DoublyLinkedSortedList
@@ -62,7 +62,7 @@ public class DoublyLinkedSortedList {
     //Set previous to be the given DoublyLinkedSortedList
     public void setPrevious(DoublyLinkedSortedList previous) {
         this.previous = previous;
-        previous.next = this;
+
     }
 
     //Return a reference to the previous DoublyLinkedSortedList
@@ -96,13 +96,57 @@ public class DoublyLinkedSortedList {
     //     }
     // }
 
+    /*Source: CGPT: why will this not work:
+    public String toString() {
+        String dataSet = null;
+        DoublyLinkedSortedList current = head; 
+        while (current != null) {
+            dataSet = current.getValue(); 
+            current = current.next; 
+        }
+        return dataSet;
+    } */
     //Return the entire list as a multi-line String
-    //public String toString();
+    public String toString() {
+
+        String dataSet = "";
+        DoublyLinkedSortedList current = head;
+        while (current != null) {
+            dataSet = dataSet + current.getValue() + "\n";
+            current = current.next;
+        }
+        return dataSet;
+    }
 
     //Insert a new DoublyLinkedSortedList element that has the given newValue in order in the list.
     public void insert(HurricaneRowData newValue) {
         DoublyLinkedSortedList newNode = new DoublyLinkedSortedList(newValue);
-        System.out.println(newNode);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        if (newValue.getAceIndex() > head.getValue().getAceIndex()) {
+            newNode.setNext(head);
+            head.setPrevious(newNode);
+            head = newNode;
+            return;
+        }
+        DoublyLinkedSortedList current = head;
+        while (current.hasNext() && newValue.getAceIndex() < current.getValue().getAceIndex()) {
+            current = current.next;
+        }
+
+        if (current.hasNext() == false) {
+            newNode.setPrevious(current);
+            current.setNext(newNode);
+            return;
+        } else {
+            newNode.setPrevious(current);
+            newNode.setNext(current.next);
+            current.setPrevious(newNode);
+            return;
+        }
+
     }
 
 }

@@ -29,9 +29,23 @@ public class Main {
         String filePath = ("C:\\Users\\pilga\\code\\CS2251_code\\Linked_List\\ace.csv");
         // Instantiates a new object of the class HurricaneDataManager
         //HurricaneDataManager dataSet1 = new HurricaneDataManager();
+
+        // Instantiates a new object of the class DoublyLinkedSortedList
         DoublyLinkedSortedList dataSet1 = new DoublyLinkedSortedList();
+
+        // Testing...
         HurricaneRowData test = new HurricaneRowData(2022, 10, 20, 3, 6);
+        HurricaneRowData test2 = new HurricaneRowData(2022, 20, 20, 3, 6);
+        HurricaneRowData test3 = new HurricaneRowData(2022, 15, 20, 3, 6);
+        HurricaneRowData test4 = new HurricaneRowData(2022, 1, 20, 3, 6);
+
         dataSet1.insert(test);
+        dataSet1.insert(test2);
+        dataSet1.insert(test3);
+        dataSet1.insert(test4);
+
+        System.out.println(dataSet1.toString());
+
         // try {
         //     File f = new File(filePath);
         //     Scanner s = new Scanner(f);
