@@ -5,7 +5,7 @@
  * 10/20/2024
  * CSCI 2251 U01
  * Purpose: This program reads in a file of hurricane data, instantiates each line of data
- * in an object defined in the class HurricaneRowDat, //TODO class where various methods manipulate the data.
+ * in an object defined in the class DoublyLinkedSortedList
  * General sources:
  * Referenced 080_fileio_baby
  * Gemini: "how do I use three classes to import, store data and manage the data"
@@ -27,27 +27,26 @@ public class Main {
         String filePath = args[0]; 
         */
         String filePath = ("C:\\Users\\pilga\\code\\CS2251_code\\Linked_List\\ace.csv");
+
         // Instantiates a new object of the class HurricaneDataManager
         //HurricaneDataManager dataSet1 = new HurricaneDataManager();
 
-        // Instantiates a new object of the class DoublyLinkedSortedList
-        DoublyLinkedSortedList dataSetTest = new DoublyLinkedSortedList();
+        // Instantiates a new object of the class DoublyLinkedSortedList        
         DoublyLinkedSortedList dataSet1 = new DoublyLinkedSortedList();
 
         // Testing...
-        HurricaneRowData test = new HurricaneRowData(2022, 10, 20, 3, 6);
-        HurricaneRowData test2 = new HurricaneRowData(2022, 20, 20, 3, 6);
-        HurricaneRowData test4 = new HurricaneRowData(2022, 15, 20, 3, 6);
-        HurricaneRowData test3 = new HurricaneRowData(2022, 16, 20, 3, 6);
-        HurricaneRowData test5 = new HurricaneRowData(2022, 1, 20, 3, 6);
-
-        dataSetTest.insert(test);
-        dataSetTest.insert(test2);
-        dataSetTest.insert(test3);
-        dataSetTest.insert(test4);
-        dataSetTest.insert(test5);
-
-        System.out.println(dataSetTest.toString());
+        // DoublyLinkedSortedList dataSetTest = new DoublyLinkedSortedList();
+        // HurricaneRowData test = new HurricaneRowData(2022, 10, 20, 3, 6);
+        // HurricaneRowData test2 = new HurricaneRowData(2022, 20, 20, 3, 6);
+        // HurricaneRowData test4 = new HurricaneRowData(2022, 15, 20, 3, 6);
+        // HurricaneRowData test3 = new HurricaneRowData(2022, 16, 20, 3, 6);
+        // HurricaneRowData test5 = new HurricaneRowData(2022, 1, 20, 3, 6);
+        // dataSetTest.insert(test);
+        // dataSetTest.insert(test2);
+        // dataSetTest.insert(test3);
+        // dataSetTest.insert(test4);
+        // dataSetTest.insert(test5);
+        // System.out.println(dataSetTest.toString());
 
         try {
             File f = new File(filePath);
@@ -79,6 +78,7 @@ public class Main {
         System.out.println(dataSet1);
         System.out.println("High ACE data: \n" + dataSet1.getFirst().getValue());
 
+        // Below was used in other assignment 
         // Source: CGPT "how do I call another method in another class with an object
         // that has been instantiated in main"
         // Prints the entire data set to ensure proper file input and classification

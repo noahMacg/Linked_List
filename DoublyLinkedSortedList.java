@@ -10,10 +10,9 @@ public class DoublyLinkedSortedList implements DoublyLinkedSortedListInterface {
     */
 
     private DoublyLinkedSortedList head;
-
-    HurricaneRowData data;
-    DoublyLinkedSortedList previous;
-    DoublyLinkedSortedList next;
+    private HurricaneRowData data;
+    private DoublyLinkedSortedList previous;
+    private DoublyLinkedSortedList next;
 
     public DoublyLinkedSortedList() {
         this.data = null;
@@ -85,16 +84,7 @@ public class DoublyLinkedSortedList implements DoublyLinkedSortedListInterface {
     }
 
     //Remove the DoublyLinkedSortedList element that has toRemove as its value
-    // public DoublyLinkedSortedList remove(HurricaneRowData toRemove) {
-
-    //     DoublyLinkedSortedList current = head; 
-
-    //     while (current! = null) {
-    //         if (current.get == null) {
-    //             System.out.println("The list is empty.");
-    //         }
-    //     }
-    // }
+    //public DoublyLinkedSortedList remove(HurricaneRowData toRemove);
 
     /*Source: CGPT: why will this not work:
     public String toString() {
@@ -125,6 +115,8 @@ public class DoublyLinkedSortedList implements DoublyLinkedSortedListInterface {
         //Inserts at the head if the list is empty
         if (head == null) {
             head = newNode;
+            System.out.println("        " + head.getValue());
+
             return;
         }
         //Check if new node should be the head
@@ -133,6 +125,8 @@ public class DoublyLinkedSortedList implements DoublyLinkedSortedListInterface {
             newNode.setNext(head);
             head.setPrevious(newNode);
             head = newNode;
+            System.out.println("        " + head.getValue());
+
             return;
         }
         /*  Source: CGPT "why is this not working : while (current.hasNext() && current.getValue().getAceIndex() > newValue.getAceIndex()) {
@@ -164,6 +158,8 @@ public class DoublyLinkedSortedList implements DoublyLinkedSortedListInterface {
             newNode.setPrevious(current);
             current.setNext(newNode);
             //System.out.println("hasNext()==false ran");
+            System.out.println("        " + head.getValue());
+
             return;
             //Inserts in-between two nodes 
         } else {
@@ -171,7 +167,9 @@ public class DoublyLinkedSortedList implements DoublyLinkedSortedListInterface {
             newNode.setNext(current.next);
             current.next.setPrevious(newNode);
             current.setNext(newNode);
+            System.out.println("        " + head.getValue());
             return;
         }
+
     }
 }
