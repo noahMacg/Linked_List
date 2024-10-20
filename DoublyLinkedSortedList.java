@@ -9,7 +9,6 @@ public class DoublyLinkedSortedList implements DoublyLinkedSortedListInterface {
      * General source CGPT: "how do I implement a double linked list java"
     */
 
-    private DoublyLinkedSortedList head;
     private HurricaneRowData data;
     private DoublyLinkedSortedList previous;
     private DoublyLinkedSortedList next;
@@ -47,7 +46,7 @@ public class DoublyLinkedSortedList implements DoublyLinkedSortedListInterface {
 
     //Return a reference to the next DoublyLinkedSortedList
     public DoublyLinkedSortedList getNext() {
-        return this.next;
+        return next;
     }
 
     //Return true if previous is not null
@@ -66,21 +65,26 @@ public class DoublyLinkedSortedList implements DoublyLinkedSortedListInterface {
 
     //Return a reference to the previous DoublyLinkedSortedList
     public DoublyLinkedSortedList getPrevious() {
-        return this.previous;
+        return previous;
     }
 
     //Return a reference to the first DoublyLinkedSortedList element in the list
     public DoublyLinkedSortedList getFirst() {
-        return this.head;
+        if (this.previous == null) {
+            return this;
+        } else {
+            return previous.getFirst();
+        }
+
     }
 
     //Return a reference to the last DoublyLinkedSortedList element in the list
     public DoublyLinkedSortedList getLast() {
-        DoublyLinkedSortedList current = head;
-        while (current != null) {
-            current = current.getNext();
+        if (data == null) {
+            return this;
+        } else {
+            return next.getNext();
         }
-        return current;
     }
 
     //Remove the DoublyLinkedSortedList element that has toRemove as its value
@@ -98,9 +102,8 @@ public class DoublyLinkedSortedList implements DoublyLinkedSortedListInterface {
     } */
     //Return the entire list as a multi-line String
     public String toString() {
-
         String dataSet = "";
-        DoublyLinkedSortedList current = head;
+        DoublyLinkedSortedList current = getFirst();
         while (current != null) {
             dataSet = dataSet + current.getValue() + "\n";
             current = current.next;
@@ -112,64 +115,43 @@ public class DoublyLinkedSortedList implements DoublyLinkedSortedListInterface {
     public void insert(HurricaneRowData newValue) {
         DoublyLinkedSortedList newNode = new DoublyLinkedSortedList(newValue);
 
-        //Inserts at the head if the list is empty
-        if (head == null) {
-            head = newNode;
-            System.out.println("        " + head.getValue());
-
+        // Places first node
+        // Source: CGPT: "why don't you need to create a new node for the first element?"
+        if (data == null) {
+            data = newValue;
             return;
         }
         //Check if new node should be the head
-        if (newValue.getAceIndex() > head.getValue().getAceIndex()) {
+        if (newValue.getAceIndex() > data.getAceIndex()) {
+            if (!this.hasNext()) {
+                newNode.setNext(this);
+                newNode.setPrevious(null);
+                this.setPrevious(newNode);
+                return;
+            } else {
+                newNode.setNext(this);
+                newNode.setPrevious(null);
+                this.setPrevious(newNode);
+                this.setNext(this.next);
 
-            newNode.setNext(head);
-            head.setPrevious(newNode);
-            head = newNode;
-            System.out.println("        " + head.getValue());
+                return;
+            }
 
-            return;
         }
-        /*  Source: CGPT "why is this not working : while (current.hasNext() && current.getValue().getAceIndex() > newValue.getAceIndex()) {
-            current = current.next;}
-        //current = current.getPrevious();
-        System.out.println("newValue " + newValue.getAceIndex());
-        System.out.println("currentValue  " + current.getValue().getAceIndex());
-        if (current.hasNext() == false) {
-            newNode.setPrevious(current);
-            current.setNext(newNode);
-            System.out.println("hasNext()==false ran");
-            return;
-        } else {
-            newNode.setPrevious(current);
-            newNode.setNext(current.next);
-            current.next.setPrevious(newNode);
-            return;}"*/
 
-        //Loops through the list and inserts based on it's ACE value 
-        DoublyLinkedSortedList current = head;
-        while (current.hasNext() && current.next.getValue().getAceIndex() > newValue.getAceIndex()) {
+        DoublyLinkedSortedList current = getFirst();
+
+        while (current.next != null && newValue.getAceIndex() > data.getAceIndex()) {
             current = current.next;
         }
-        //System.out.println("newValue " + newValue.getAceIndex());
-        //System.out.println("currentValue  " + current.getValue().getAceIndex());
-
-        //Inserts at the tail
-        if (current.hasNext() == false) {
-            newNode.setPrevious(current);
-            current.setNext(newNode);
-            //System.out.println("hasNext()==false ran");
-            System.out.println("        " + head.getValue());
-
-            return;
-            //Inserts in-between two nodes 
-        } else {
-            newNode.setPrevious(current);
-            newNode.setNext(current.next);
-            current.next.setPrevious(newNode);
-            current.setNext(newNode);
-            System.out.println("        " + head.getValue());
-            return;
+        if (current.getValue().getAceIndex() < newValue.getAceIndex() && current.previous == null) {
+            newNode.setNext(current);
+            current.setPrevious(newNode);
         }
 
+        if (current.next == null) {
+            current.setNext(newNode);
+            newNode.setPrevious(current);
+        }
     }
 }
