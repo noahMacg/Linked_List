@@ -19,64 +19,62 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        /*
         if (args.length != 1) {
-        	System.out.println("Please provide the file path.");
-        	return;
+            System.out.println("Please provide the file path.");
+            return;
         }
-        String filePath = args[0]; 
-        */
-        String filePath = ("C:\\Users\\pilga\\code\\CS2251_code\\Linked_List\\ace.csv");
+        String filePath = args[0];
 
         // Instantiates a new object of the class HurricaneDataManager
         //HurricaneDataManager dataSet1 = new HurricaneDataManager();
 
-        // Instantiates a new object of the class DoublyLinkedSortedList        
-        //DoublyLinkedSortedList dataSet1 = new DoublyLinkedSortedList();
+        //Instantiates a new object of the class DoublyLinkedSortedList        
+        DoublyLinkedSortedList dataSet1 = new DoublyLinkedSortedList();
 
         // Testing...
-        DoublyLinkedSortedList dataSetTest = new DoublyLinkedSortedList();
-        HurricaneRowData test = new HurricaneRowData(2022, 10, 20, 3, 6);
-        HurricaneRowData test2 = new HurricaneRowData(2022, 20, 20, 3, 6);
-        HurricaneRowData test4 = new HurricaneRowData(2022, 15, 20, 3, 6);
-        HurricaneRowData test3 = new HurricaneRowData(2022, 16, 20, 3, 6);
-        HurricaneRowData test5 = new HurricaneRowData(2022, 1, 20, 3, 6);
-        dataSetTest.insert(test);
-        //dataSetTest.insert(test2);
-        dataSetTest.insert(test3);
+        //String filePath = ("C:\\Users\\pilga\\code\\CS2251_code\\Linked_List\\ace.csv");
+        // DoublyLinkedSortedList dataSetTest = new DoublyLinkedSortedList();
+        // HurricaneRowData test = new HurricaneRowData(2022, 10, 20, 3, 6);
+        // HurricaneRowData test2 = new HurricaneRowData(2022, 20, 20, 3, 6);
+        // HurricaneRowData test3 = new HurricaneRowData(2022, 22, 20, 3, 6);
+        // HurricaneRowData test4 = new HurricaneRowData(2022, 15, 20, 3, 6);
+        // HurricaneRowData test5 = new HurricaneRowData(2022, 1, 20, 3, 6);
+        // dataSetTest.insert(test);
+        // dataSetTest.insert(test2);
+        // dataSetTest.insert(test3);
         // dataSetTest.insert(test4);
         // dataSetTest.insert(test5);
-        System.out.println(dataSetTest.toString());
+        // System.out.println(dataSetTest.toString());
 
-        // try {
-        //     File f = new File(filePath);
-        //     Scanner s = new Scanner(f);
+        try {
+            File f = new File(filePath);
+            Scanner s = new Scanner(f);
 
-        //     s.nextLine();
+            s.nextLine();
 
-        //     while (s.hasNext()) {
-        //         String line = s.nextLine(); // Strips the header
-        //         String[] values = line.split(","); // Breaks the data up
+            while (s.hasNext()) {
+                String line = s.nextLine(); // Strips the header
+                String[] values = line.split(","); // Breaks the data up
 
-        //         HurricaneRowData temp = new HurricaneRowData(
-        //                 Integer.parseInt(values[0]), // year
-        //                 Integer.parseInt(values[1]), // aceIndex
-        //                 Integer.parseInt(values[2]), //tropStorm
-        //                 Integer.parseInt(values[3]), // hurrCat1
-        //                 Integer.parseInt(values[4]) // hurrMajor
-        //         );
-        //         // Source: "CGPT how do I add data from Main into a data class"
-        //         dataSet1.insert(temp);
-        //         //HurricaneRowData h = dataSet1.getValue();
-        //     }
-        //     s.close();
-        //     // Source: CGPT "what io exception do I want to initiate in try / catch for a file input"
-        // } catch (IOException e) {
-        //     System.err.println("IO error: " + e.getMessage());
-        // }
+                HurricaneRowData temp = new HurricaneRowData(
+                        Integer.parseInt(values[0]), // year
+                        Integer.parseInt(values[1]), // aceIndex
+                        Integer.parseInt(values[2]), //tropStorm
+                        Integer.parseInt(values[3]), // hurrCat1
+                        Integer.parseInt(values[4]) // hurrMajor
+                );
+                // Source: "CGPT how do I add data from Main into a data class"
+                dataSet1.insert(temp);
 
-        // System.out.println(dataSet1);
-        // System.out.println("High ACE data: \n" + dataSet1.getFirst().getValue());
+            }
+            s.close();
+            // Source: CGPT "what io exception do I want to initiate in try / catch for a file input"
+        } catch (IOException e) {
+            System.err.println("IO error: " + e.getMessage());
+        }
+
+        System.out.println(dataSet1);
+        System.out.println("High ACE data: \n" + dataSet1.getFirst().getValue());
 
         // Below was used in other assignment 
         // Source: CGPT "how do I call another method in another class with an object
